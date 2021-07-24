@@ -1,0 +1,50 @@
+<h3>{{viewTitle}}</h3>
+
+<form action="/employee" method="POST" #addOrEdit="ngForm" (ngSubmit)="addOrEdit.valid && onSubmit(addOrEdit)">
+    <input type="hidden" name="_id" value="{{employee._id}}">
+    <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" class="form-control" name="fullName" [(ngModel)]="employee.fullName" 
+            placeholder="Full Name" #fullName="ngModel" required>
+        <div class="text-danger" *ngIf="employee.fullNameError">
+            {{employee.fullNameError}}
+        </div>
+        <div class="text-danger" *ngIf="addOrEdit.submitted && !fullName.valid">
+            <label>This Field is required.</label>
+        </div>
+        
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" name="email" [(ngModel)]="employee.email" 
+            placeholder="Email" #email="ngModel" required>
+        <div class="text-danger" *ngIf="employee.emailError">
+            {{employee.emailError}}
+        </div>
+        <div class="text-danger" *ngIf="addOrEdit.submitted && !email.valid">
+            <label>This Field is required.</label>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Mobile</label>
+            <input type="text" class="form-control" name="mobile" [(ngModel)]="employee.mobile" 
+                placeholder="Mobile Number" #mobile="ngModel" required>
+                <div class="text-danger" *ngIf="addOrEdit.submitted && !mobile.valid">
+                    <label>This Field is required.</label>
+                </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label>City</label>
+            <input type="text" class="form-control" name="city" [(ngModel)]="employee.city" 
+                placeholder="City" #city="ngModel" required>
+                <div class="text-danger" *ngIf="addOrEdit.submitted && !city.valid">
+                    <label>This Field is required.</label>
+                </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
+         <a class="btn btn-secondary" href="/employee/list"><i class="fa fa-list-alt"></i> View All</a>
+    </div>
+</form>

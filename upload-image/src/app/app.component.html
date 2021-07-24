@@ -1,0 +1,12 @@
+<input [formControl]="file" 
+(change)="fileChange($event)" 
+type="file" placeholder="File">
+
+
+<button style="margin-top:20px" 
+(click)="uploadFile()" 
+     color="primary">
+      Upload
+</button>
+
+<div *ngIf="loading">loading...</div>

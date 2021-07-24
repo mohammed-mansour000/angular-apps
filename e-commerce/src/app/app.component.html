@@ -1,0 +1,61 @@
+<mat-toolbar color="primary" class="example-header">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="col-md-7 justify-content-start">
+      <a mat-button class="text-white" [routerLink]="['/home']" routerLinkActive="active" ><h5>E-Commerce</h5></a>
+      <a mat-button class="text-white">Home</a>
+      <a mat-button class="text-white" [routerLink]="['/contact']">Contact Us</a>
+      <a mat-button class="text-white" [routerLink]="['/products']">Products</a>
+    </div>
+    <div class="col-md-5" justify-content-end>
+      <!-- for login and register buttons,  will we shown if user is not logged in -->
+      <a mat-button *ngIf="!authService.isLoggedIn()" class="text-white" [routerLink]="['/auth/login']" >Login</a>
+      <a mat-button *ngIf="!authService.isLoggedIn()" class="text-white" [routerLink]="['/auth/register']">Register</a>
+      <!-- for management button, will be shown if its the admin  -->
+      <a mat-button *ngIf="authService.isLoggedIn() && (authService.currentUser && authService.currentUser.isAdmin)" 
+        [matMenuTriggerFor]="managementMenu" class="text-white">Management</a>
+      <mat-menu #managementMenu="matMenu">
+        <a mat-menu-item>Dashboard</a>
+        <a mat-menu-item>Manage Categories</a>
+        <a mat-menu-item>Manage Users</a>
+      </mat-menu>
+      <!-- for user button, will be shown if the user is loggined -->
+      <!-- *ngIf="authService.isLoggedIn() && authService.currentUser"  -->
+      <a mat-button 
+        [matMenuTriggerFor]="userMenu" class="text-white">{{authService.username}}user</a>
+        <!-- for cart button, will be shown if user is loggined and has products in the cart -->
+      <a mat-button  *ngIf="authService.isLoggedIn() && (authService.currentUser && authService.cart)" 
+        [routerLink]="['/cart']" routerLinkActive="active"
+          style="font-size: 23px;" class="text-white">
+        <i style="font-size: 23px;" class="fa fa-shopping-cart" matBadge="5"
+          matBadgeOverlap="false"
+          matBadgePosition="above after" matBadgeSize="medium"
+          matBadgeColor="warn">
+        </i>
+      </a>
+      <mat-menu #userMenu="matMenu">
+        <a mat-menu-item [routerLink]="['/profile']">Profile</a>
+        <a mat-menu-item>Orders</a>
+        <a mat-menu-item *ngIf="authService.isLoggedIn()" (click)="authService.userLogout()">Logout</a>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<ng-container>
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" class="example-sidenav justify-content-center text-center" [fixedInViewport]="false">
+      asdasd
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <mat-toolbar class="example-footer">
+    E-Commerce
+  </mat-toolbar>
+</ng-container>
+
+

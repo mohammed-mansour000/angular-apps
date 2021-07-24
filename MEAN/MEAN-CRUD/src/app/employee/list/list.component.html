@@ -1,0 +1,30 @@
+<h3>
+    <a class="btn btn-secondary" href="employee/add">
+        <i class="fa fa-plus"></i>
+        Create New
+    </a>
+    Employee List
+</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>City</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+            <td>{{employee.fullName}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.mobile}}</td>
+            <td>{{employee.city}}</td>
+            <td>
+                <a href="/employee/edit/{{employee._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a class="text-danger" (click)="delete(employee._id)"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,28 @@
+<table>
+    <tr>
+        <td>Name</td>
+        <td>
+            <input type="text" [(ngModel)]="name">
+        </td>
+    </tr>
+    <tr>
+        <td>Address</td>
+        <td>
+            <input type="text" [(ngModel)]="address">
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <button (click)="addCourt()">Add Court</button>
+        </td>
+    </tr>
+</table>
+<ul>
+    <li *ngFor="let court of courts">
+        <input type="text" [(ngModel)]="court.ADDRESS">
+        <input type="text" [(ngModel)]="court.NAME">
+        <button (click)="updateCourt(court)">Edit</button>
+        <button (click)="removeCourt(court.COURT_ID)">Remove</button>
+    </li>
+</ul>

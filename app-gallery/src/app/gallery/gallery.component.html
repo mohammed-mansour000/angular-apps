@@ -1,0 +1,18 @@
+<div class="pt-5"> 
+    <div class="row">
+        <div class="mb-3">
+            <button class="btn btn-lg btn-info mr-1" [class.active]="filterBy=='all'" (click)="filterBy='all'">All</button>
+            <button class="btn btn-lg btn-info mr-1" [class.active]="filterBy=='boats'" (click)="filterBy='boats'">Boats</button>
+            <button class="btn btn-lg btn-info mr-1" [class.active]="filterBy=='coffee'" (click)="filterBy='coffee'">Coffee</button>
+            <button class="btn btn-lg btn-info mr-1" [class.active]="filterBy=='library'" (click)="filterBy='library'">Library</button>
+            <button class="btn btn-lg btn-info mr-1" [class.active]="filterBy=='buildings'" (click)="filterBy='buildings'">Buildings</button>
+        </div>
+        <ul class="list-unstyled">
+            <li *ngFor="let img of (allImages | imageFilter:filterBy)">
+                <a [routerLink]="['/image', img.id]" routerLinkActive="router-link-active" >
+                    <img class="rounded tn" [src]="img.url" width="200" height="160">
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

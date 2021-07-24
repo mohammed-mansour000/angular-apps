@@ -1,0 +1,61 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary float-right m-2" 
+    data-toggle="modal" data-target="#exampleModal" (click)="addEmp()"
+    data-backdrop="static" data-keyboard="false"
+    style="float: right;">
+    Add Employee
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeClick()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-add-edit-emp [emp]="emp" *ngIf="activatedAddEditEmpComp"></app-add-edit-emp>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeClick()">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#EmployeeID</th>
+        <th scope="col">Employee Name</th>
+        <th scope="col">Department</th>
+        <th scope="col">DateOfJoining</th>
+        <th scope="col">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employeesList">
+        <td>{{emp.EmployeeId}}</td>
+        <td>{{emp.EmployeeName}}</td>
+        <td>{{emp.Department}}</td>
+        <td>{{emp.DateOfJoining | date: 'd/M/y'}}</td>
+        <td>
+            <button  style="margin-right: 10px;" class="btn btn-light"
+                        data-toggle="modal" data-target="#exampleModal" (click)="editEmp(emp)"
+                        data-backdrop="static" data-keyboard="false"
+            >
+                Edit
+            </button>
+            <button class="btn btn-light" (click)="deleteEmp(emp.EmployeeId)">
+                Delete
+            </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

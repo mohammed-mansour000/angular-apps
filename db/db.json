@@ -1,0 +1,42 @@
+{
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "KFC restaurants",
+      "address": "any address1",
+      "email": "kfc@test.com"
+    },
+    {
+      "id": 2,
+      "name": "MC restaurants",
+      "address": "any address2",
+      "email": "macdonalds@test.com"
+    },
+    {
+      "name": "BG King",
+      "email": "bg@gmail.com",
+      "address": "any address 3",
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "name": "asd",
+      "email": "adf",
+      "password": "asd",
+      "id": 3
+    },
+    {
+      "name": "alfn",
+      "email": "klxfn",
+      "password": "v,l",
+      "id": 4
+    },
+    {
+      "name": "asd",
+      "email": "kas",
+      "password": "sldfjk",
+      "id": 5
+    }
+  ]
+}

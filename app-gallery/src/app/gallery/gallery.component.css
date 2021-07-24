@@ -1,0 +1,11 @@
+
+
+ul li{
+    display: inline;
+}
+
+.tn{
+    border: 4px solid #eee;
+    margin: 7px;
+    box-shadow: #555 1px -1px 7px 0px
+}

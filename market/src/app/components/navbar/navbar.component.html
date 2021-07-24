@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+    <a class="navbar-brand" routerLink="/">Market</a>
+    <button (click)="toggleNavbar()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" [class.show]="isOpen" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="cart" *ngIf="isUser">Cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="dashboard" *ngIf="isAdmin && isUser">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="login" *ngIf="!isUser">login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="signup" *ngIf="!isUser">sign up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="signup" *ngIf="isUser" (click)="logout()">logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>

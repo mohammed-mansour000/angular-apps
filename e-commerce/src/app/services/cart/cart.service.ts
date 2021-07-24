@@ -1,0 +1,77 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Cart } from 'src/app/models/cart';
+import { CartItem } from 'src/app/models/cart-item';
+import { ErrorHandler } from 'src/app/shared/error-handler';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CartService {
+
+  constructor(private http: HttpClient) { }
+
+  private _cartUrl = `http://localhost:3000/cart`;
+  private _cartItemUrl = `http://localhost:3000/cart_items`;
+
+  private errorHandler: ErrorHandler = new ErrorHandler();
+
+  getCart(id: number): Observable<Cart> {
+    try {
+      return this.http.get<Cart>(this._cartUrl);
+    } catch (error) {
+      //this.errorHandler.handleError(error);
+      throw(error);
+    }
+  }
+
+  getCartItem(id: number): Observable<CartItem> {
+    try {
+      return this.http.get<CartItem>(this._cartItemUrl);
+    } catch (error) {
+      //this.errorHandler.handleError(error);
+      throw(error);
+    }
+  }
+
+  clearCartProducts(cartItemId: number): Observable<CartItem>{
+    try {
+      let clearUrl = `${this._cartItemUrl}/${cartItemId}/products/clear-products`;
+      return this.http.delete<CartItem>(clearUrl);
+    } catch (error) {
+      //this.errorHandler.handleError(error);
+      throw(error);
+    }
+  }
+
+  placeOrder(cartItemId: number, productId: number, createOrderDto: any): Observable<void>{
+    try {
+      let orderUrl = `${this._cartItemUrl}/${cartItemId}/products/${productId}/placeorder`;
+      return this.http.post<void>(orderUrl, createOrderDto);
+    } catch (error) {
+      //this.errorHandler.handleError(error);
+      throw(error);
+    }
+  }
+
+  checkout(cartItemId: number, createOrderDto: any): Observable<void>{
+    try {
+      let checkoutUrl = `${this._cartItemUrl}/${cartItemId}/checkout`;
+      return this.http.post<void>(checkoutUrl, createOrderDto);
+    } catch (error) {
+      //this.errorHandler.handleError(error);
+      throw(error);
+    }
+  }
+
+  removeFromProducts(cartItemId: number, productId: number): Observable<CartItem>{
+    try {
+      let removeUrl = `${this._cartItemUrl}/${cartItemId}/products/${productId}/remove-from-cart`;
+      return this.http.delete<CartItem>(removeUrl);
+    } catch (error) {
+      //this.errorHandler.handleError(error);
+      throw(error);
+    }
+  }
+}

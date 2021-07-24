@@ -1,0 +1,70 @@
+//////////////////////////////////////////////////////////////////
+
+to add bootstrap in angular 10:
+
+1-npm install --save bootstrap@4
+2-copy relative path of bootstrap.min in bootstrap module and paste it in angular.json
+inside styles
+3-npm i @ng-bootstrap/ng-bootstrap  (add it if above 2 steps didnt work)
+
+/////////////////////////////////////////
+
+you can just type npm i bootstrap then copy the relative path
+
+//////////////////////////////////////////////
+
+deploy angular on github:
+git remote add origin https://github.com/USERNAME/PROJECT_NAME.git
+git remote -v
+npm install -g angular-cli-ghpages
+ng build --base-href ./
+ngh -no-silent
+
+
+///////////////////////////////////////////////
+To deploy it on xampp server:
+ng build --prod --base-href=http://localhost/any-name3/ --deployUrl=http://localhost/any-name3/
+
+Most of web servers dont support pathstrategy of angular so to fix this:
+	-import HashLocationStrategy
+
+http://localhost/any-name3/#/products //for example
+
+////////////////////////////////////////////////////
+
+FOR GITHUB WHEN CREATING NEW REPO: (PUSH)
+	git init
+	git add .
+	git commit -m 'your message'
+	git remote add origin 'your_url_name'
+	git push -u origin master
+
+FOR PULL: 
+	1. Fork the Repository.
+	2.git checkout -b 'branch_name'
+	3.git push origin 'branch_name'
+	4.git pull-request
+
+	or you can fork the repo
+	then work on it normally 
+	then when you want to pull request 
+	you go to your fork and make the pull request
+
+///////////////////////////////////////////////////////////
+
+npm install firebase @angular/fire
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+///////////////////////////////////////////////////////////////
+some errors: 
+error => Unexpected token < 
+solution => <!doctype html> to <!DOCTYPE html>
+
+//////////////////////////////////////////////////////////////
+
+install angular project without node_modules
+=> ng new example --skip-install

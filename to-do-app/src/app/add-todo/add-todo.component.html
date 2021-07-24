@@ -1,0 +1,9 @@
+<p>add-todo works!</p>
+<form action="">
+    <input class="form-control" type="text" placeholder="describe your task" name="any-name" [(ngModel)]="title">
+    <br>
+    <button class="btn btn-primary btn-sm" (click)="add()" >add</button>
+    <p *ngIf="title.length > 0">
+        The task {{title}} will be added
+    </p>
+</form>

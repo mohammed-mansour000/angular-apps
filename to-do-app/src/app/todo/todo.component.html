@@ -1,0 +1,10 @@
+<ul>
+    <app-child-todo
+     *ngFor="let item of todo" 
+     [todo]="item" 
+     (toggleEvent)="toggleTodo($event)"
+     (deleteEvent)="deleteTodo($event)"
+     ></app-child-todo>
+</ul>
+
+<app-add-todo (addEvent)="addTodo($event)"></app-add-todo>

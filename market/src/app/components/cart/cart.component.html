@@ -1,0 +1,31 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Total</th>
+        <th scope="col">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cart of carts">
+            <td>{{cart.name}}</td>
+            <td>{{cart.price | currency}}</td>
+            <td>
+                <input type="number" name="Quantity" [(ngModel)]="cart.quantity" id="">
+            </td>
+            <td>{{(cart.price * cart.quantity) | currency}}</td>
+            <td>
+                <button class="btn btn-primary btn-sm" (click)="save(cart.id, cart.quantity)">Save</button>
+                <button class="btn btn-danger btn-sm ml-2" (click)="delete(cart.id)">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><b>{{total | currency}}</b></td>
+        </tr>
+    </tbody>
+</table>

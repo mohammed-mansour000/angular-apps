@@ -1,0 +1,35 @@
+<h2>create new product</h2>
+<form (submit)="addNewProduct(addProductForm.value)" #addProductForm="ngForm" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Product Name</label>
+      <input type="text" ngModel name="product_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Product Name">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Price</label>
+      <input type="text" ngModel name="product_price" class="form-control" id="exampleInputPassword1" placeholder="Price">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Description</label>
+      <input type="text" ngModel name="product_description" class="form-control" id="exampleInputPassword1" placeholder="Description">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Select Category</label>
+      <select  ngModel name="product_category" class="form-control" id="exampleInputPassword1">
+        <option value="">-- Select Category --</option>
+        <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <input [formControl]="file" 
+        (change)="fileChange($event)" 
+          type="file" placeholder="File">
+
+
+      <!-- <button style="margin-top:20px" 
+      (click)="uploadFile()" 
+          color="primary">
+            Upload
+      </button>  -->
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>

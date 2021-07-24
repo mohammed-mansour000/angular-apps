@@ -1,0 +1,80 @@
+<app-header></app-header>
+
+
+<h1>{{name}}</h1>
+
+<h1>{{getName()}}</h1>
+
+<a href="{{url}}"><h2>{{url}}</h2></a>
+
+<app-userlist></app-userlist>
+
+
+<input type="text" #valueOfInput (keyup)="getVal($event.target.value)">
+
+<br> <br>
+
+<button (click)="getVal(valueOfInput.value)">click me</button>
+
+<h2>{{currentValue}}</h2>
+
+
+
+<!-- use of switch statement -->
+
+<!-- <div [ngSwitch]="color">
+  <h2 style="color: red;"  *ngSwitchCase="'red'">
+    this is red
+  </h2>
+  <h2 style="color: green;"  *ngSwitchCase="'green'">
+    this is green
+  </h2>
+  <h2 style="color: blue;"  *ngSwitchCase="'blue'">
+    this is blue
+  </h2>
+  <h2 style="color: gray;"  *ngSwitchDefault>
+    this is default color
+  </h2>
+</div> -->
+
+<!-- for loop and display data in table -->
+
+<table border="1">
+  <th>name</th>
+  <th>age</th>
+  <th>email</th>
+
+  <tr *ngFor="let item of data">
+    <td>{{item.name}}</td>
+    <td>{{item.age}}</td>
+    <td>{{item.email}}</td>
+  </tr>
+
+</table>
+
+
+<!-- create form that send data as json -->
+
+<h1>simple form</h1>
+
+<form #simpleForm="ngForm" (ngSubmit)="getValueForm(simpleForm.value)">
+
+  <input type="text" pattern="[a-zA-Z ]*" required #userId="ngModel" ngModel name="username" placeholder="enter your name">
+  <div class="error" *ngIf="userId.invalid && userId.touched">*username field is invalid</div>
+  <br><br>
+  <input type="email" required #emailId="ngModel" ngModel name="email" placeholder="enter your email" >
+  <div class="error" *ngIf="emailId.invalid && emailId.touched">*email field is invalid</div>
+  <br><br>
+  <input type="text" required #ageId="ngModel" ngModel name="age" placeholder="enter your age" >
+  <div class="error" *ngIf="ageId.invalid && ageId.touched">*age field is required</div>
+  <br><br>
+  <input type="text" required #addressId="ngModel" ngModel name="address"  placeholder="enter your address">
+  <div class="error" *ngIf="addressId.invalid && addressId.touched">*address field is required</div>
+  <br><br>
+  <button [disabled]="simpleForm.invalid" class="btn btn-primary">sent data</button>
+
+</form>
+
+
+
+<app-footer></app-footer>

@@ -1,0 +1,89 @@
+@import 'src/main-styles.scss'; 
+
+.root{
+    display: flex;
+    width: 100%;
+    position: relative;
+
+    &:hover{
+        .x-icon-button{
+            opacity: 1;    
+            transform: scale(1);
+            transition: all ease-in-out .2s;
+        }
+    }
+
+    .x-icon-button{
+        position: absolute;
+        right: -17px;
+        top: -17px; //value equals half to the height
+        background: $red;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        opacity: .8;
+        display: flex;
+
+        //horizantally and vertically center the text, we cant use them without display: flex
+
+        align-items: center;
+        justify-content: center;
+
+        font-weight: 900;
+        font-size: 20px;
+        color: $light-grey;
+        transform: scale(0);
+        cursor: pointer;
+
+        &:hover{
+            transform: scale(1.2);
+        }
+    }
+
+
+    .budget-item{
+        display: flex;
+        width: 100%;
+        background-color: $light-grey;
+        padding: 10px;
+        border-radius: 5px;
+        align-items: center;
+        cursor: pointer;
+
+        .description{
+            flex-grow: 1;
+            font-size: 18px;
+        }
+
+        .amount{
+            border-radius: 3px;
+            padding: 5px;
+
+        }
+
+        &:hover{
+            background-color: #f1f1f1;
+        }
+    }
+    
+}
+
+.expense{
+    p{
+        color: $red;
+    }
+
+    .amount{
+        background-color: $light-red;
+    }
+}
+
+.income{
+    p{
+        color: $green;
+    }
+
+    .amount{
+        background-color: $light-green;
+    }
+}

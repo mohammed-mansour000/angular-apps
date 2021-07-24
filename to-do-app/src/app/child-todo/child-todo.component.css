@@ -1,0 +1,10 @@
+.todo-item{
+    padding: 7px;
+    border-radius: 5px;
+    background-color: wheat;
+}
+
+.completed{
+    color: white;
+    background-color: #51c770;
+}

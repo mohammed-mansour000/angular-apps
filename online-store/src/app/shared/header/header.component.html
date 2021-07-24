@@ -1,0 +1,46 @@
+<mat-toolbar>
+    <button mat-mini-fab class="example-icon" color="warn" aria-label="Example icon-button with menu icon">
+        <mat-icon [matMenuTriggerFor]="navMenu">menu</mat-icon>
+    </button>
+    <span class="example-icon"></span>
+    <mat-icon>{{iconTitle}}</mat-icon>  <!-- dynamic icon -->
+    <span class="example-icon"></span>
+    <span>{{pageTitle}}</span>  <!-- dynamic title -->
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon">
+        <mat-icon [color]=userStatusColor [routerLink]="['/product']" >shop</mat-icon>    <!-- dynamic color for  account_box icon-->
+    </button>
+    <span class="example-icon"></span>
+    <button mat-icon-button class="example-icon favorite-icon">
+        <mat-icon [color]=userStatusColor [routerLink]="['/settings']" >account_box</mat-icon>    <!-- dynamic color for  account_box icon-->
+    </button>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon matBadge="{{counter}}" matBadgeColor="warn">shopping_cart</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon [matMenuTriggerFor]="helpMenu">help</mat-icon>
+    </button>
+
+    <mat-menu #helpMenu="matMenu">  <!-- dynamic list of menu according to helpTitle-->
+        <div *ngIf="helpTitle==='helpForSettings'">this is setting page help</div>
+        <div *ngIf="helpTitle==='helpForAboutUs'">this is about us page help</div>
+    </mat-menu>
+
+    <mat-menu #navMenu="matMenu">
+        <a href="{{socialData.fbLink}}" target="_blank">
+            <button mat-menu-item><i class="fab fa-facebook-square fa-2x text-secondary"></i></button>
+        </a>
+        <a href="{{socialData.gitHubLink}}" target="_blank">
+            <button mat-menu-item><i class="fab fa-github fa-2x text-secondary"></i></button>
+        </a>
+        <a href="{{socialData.linkedInLink}}" target="_blank">
+            <button mat-menu-item><i class="fab fa-linkedin fa-2x text-secondary"></i></button>
+        </a>
+        <a href="" [routerLink]="['/about-us']">
+            <button mat-menu-item  ><mat-icon>info</mat-icon></button>
+        </a>
+        <a href="" [routerLink]="['/admin']" >
+            <button mat-menu-item ><mat-icon>settings</mat-icon></button>
+        </a>
+    </mat-menu>
+</mat-toolbar>

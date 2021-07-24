@@ -1,0 +1,27 @@
+<div>
+    <h4>update <span class="text-info">{{currentEmployee.name}}</span></h4>
+    <div class="form-group row">
+        <label for="inputEmail" class="col-sm-2 col-form-label">Employee Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="currentEmployee.name"  placeholder="enter name">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Employee Age</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" [(ngModel)]="currentEmployee.age" placeholder="enter age">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Employee Address</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="currentEmployee.address" placeholder="enter address">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10 offset-sm-2">
+            <button type="submit" (click)="update()" [disabled]="!currentEmployee.name || !currentEmployee.address || !currentEmployee.age" class="btn btn-primary">update</button>
+            <button [routerLink]="['']"  class="btn btn-defualt ml-1">cancel</button>
+        </div>
+    </div>
+  </div>

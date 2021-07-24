@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <div class="text-right mb-4">
+        <button class="btn btn-primary" (click)="openModal(popup, null)">add</button>
+    </div>
+    <h3 class="text-center text-white" *ngIf="!employeeList.length">Fetching Data...</h3>
+    <div class="row" *ngIf="employeeList.length">
+        <div class="col-md-3 mt-3" *ngFor="let employee of employeeList">
+            <div class="card">
+                <div class="card-header">
+                    Employee Details
+                </div>
+               <div class="card-body text-center">
+                    <div class="card-title">{{employee.name}}</div>
+                    <hr>
+                    <div class="card-text">{{employee.age}}</div>
+                    <hr>
+                    <div class="card-text">{{employee.address}}</div>
+               </div>
+               <div class="card-footer text-center">
+                <button class="btn btn-info btn-sm" (click)="openModal(popup, employee.id)">edit</button>
+                <button class="btn btn-danger btn-sm ml-2 mt-lg-0 mt-md-2" (click)="delete(employee.id)">delete</button>
+            </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<ng-template #popup let-d="dismiss">
+    <div class="modal-header text-primary">
+        {{employeeDetails ? 'update' : 'add'}} employee
+    </div>
+
+    <div class="modal-body">
+        <form [formGroup]="form">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Name</label>
+                <input type="text" class="form-control" formControlName="name">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Age</label>
+                <input type="number" class="form-control" formControlName="age">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Address</label>
+                <input type="text" class="form-control" formControlName="address">
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-sm p-2 mr-2"
+                    [disabled]="!form.valid"
+                    (click)="employeeDetails ? update(employeeDetails.id) : add(); d()">Save</button>
+                <button type="submit" class="btn btn-secondary  btn-sm p-2 mr-2" (click)="d()">Cancel</button>
+              </div>
+              
+        </form>
+    </div>
+</ng-template>

@@ -1,0 +1,25 @@
+<h2>update-resta works!</h2>
+
+
+<div *ngIf="alert" class="alert alert-info alert-dismissible fade show" role="alert">
+    <strong>Success!</strong> Your Data Has Been Updated.
+    <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+  
+<form [formGroup]="editResta"  (ngSubmit)="updateThisResta()">
+    <div class="form-group">
+        <label for="pwd">Restaurant Name:</label>
+        <input type="text" class="form-control" placeholder="Enter Name" formControlName="name" >
+    </div>
+    <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" class="form-control" placeholder="Enter Email" formControlName="email" >
+    </div>
+    <div class="form-group">
+    <label for="pwd">Address:</label>
+    <input type="text" class="form-control" placeholder="Enter Address" formControlName="address" >
+    </div>
+    <button type="submit" class="btn btn-info">Update</button>
+</form>

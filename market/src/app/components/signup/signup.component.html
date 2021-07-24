@@ -1,0 +1,44 @@
+<form #f="ngForm">
+    <div class="text-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+    <div class="form-group row">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Username</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" ngModel name="username" #username="ngModel" placeholder="Username" required>
+        <small class="text-danger" *ngIf="username.invalid && username.touched">username is required</small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" ngModel name="email" #email="ngModel"  placeholder="Email" required>
+        <small class="text-danger" *ngIf="email.invalid && email.touched">email is required</small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" ngModel name="password" #password="ngModel" placeholder="Password">
+        <small class="text-danger" *ngIf="password.invalid && password.touched">password is required</small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Confirm Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" ngModel name="confirm_password" #confirmPassword="ngModel" placeholder="Confirm Your Password">
+        <small class="text-danger" *ngIf="confirmPassword.invalid && confirmPassword.touched">confirm your password</small>
+        <small class="text-danger" *ngIf="confirmPassword.value != password.value && confirmPassword.touched">password doesn't match</small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Address</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" ngModel name="address" #address="ngModel" placeholder="Address">
+        <small class="text-danger" *ngIf="address.invalid && address.touched">address is required</small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" [disabled]="f.invalid || password.value!=confirmPassword.value" (click)="signup(f)" class="btn btn-primary">Sign Up</button>
+      </div>
+    </div>
+  </form>

@@ -1,0 +1,72 @@
+{
+  "article": [
+    {
+      "id": 1,
+      "name": "Breaking Bad",
+      "description": "Breaking Bad is an American neo-Western crime drama television series created and produced by Vince Gilligan. The show aired on AMC from January 20, 2008.",
+      "year": "2008-2013",
+      "linkToImdb": "https://www.imdb.com/title/tt0903747/",
+      "image": "https://images4.alphacoders.com/258/thumb-1920-258026.png"
+    },
+    {
+      "id": 2,
+	  "name": "Game Of Throne",
+      "description": "Game of Thrones is an American fantasy drama television series created by David Benioff and D. B. Weiss for HBO. It is an adaptation of A Song of Ice and Fire, a series of fantasy novels by George R. R. Martin.",
+      "year": "2011-2019",
+      "linkToImdb": "https://www.imdb.com/title/tt0944947/",
+      "image": "https://wallpapercave.com/wp/wp2062228.jpg"
+    },
+    {
+	  "id": 3,
+      "name": "Mr. Robot",
+      "description": "Mr. Robot is an American drama thriller television series created by Sam Esmail for USA Network. A cybersecurity engineer and hacker with social anxiety disorder and clinical depression.",
+      "year": "2015-2020",
+      "linkToImdb": "https://www.imdb.com/title/tt4158110/",
+      "image": "https://wallpapercave.com/wp/wp1810633.jpg"
+    },
+     {
+	  "id": 4,
+      "name": "Sherlock ",
+      "description": "Sherlock is a British crime television series based on Sir Arthur Conan Doyle's Sherlock Holmes detective stories. Created by Steven Moffat and Mark Gatiss.",
+      "year": "2010-2017",
+      "linkToImdb": "https://www.imdb.com/title/tt1475582/",
+      "image": "https://wallpapercave.com/wp/wp2032047.jpg"
+    },
+     {
+	  "id": 5,
+      "name": "The Leftovers",
+      "description": "Three years after the disappearance of two percent of the global population, a group of people in a small New York community try to continue their lives while coping with the tragedy of the unexplained nature of the event.",
+      "year": "2014-2017",
+      "linkToImdb": "https://www.imdb.com/title/tt2699128/",
+      "image": "https://wallpapercave.com/wp/wp2399106.jpg"
+    },
+     {
+	  "id": 6,
+      "name": "Peaky Blinders",
+      "description": "A gangster family epic set in 1900s England, centering on a gang who sew razor blades in the peaks of their caps, and their fierce boss Tommy Shelby.",
+      "year": "2013-2019",
+      "linkToImdb": "https://www.imdb.com/title/tt2442560/",
+      "image": "https://wallpapercave.com/wp/wp1890608.jpg"
+    }
+  ],
+  "users": [
+    {
+      "name": "asd",
+      "email": "adf",
+      "password": "asd",
+      "id": 3
+    },
+    {
+      "name": "alfn",
+      "email": "klxfn",
+      "password": "v,l",
+      "id": 4
+    },
+    {
+      "name": "asd",
+      "email": "kas",
+      "password": "sldfjk",
+      "id": 5
+    }
+  ]
+}
