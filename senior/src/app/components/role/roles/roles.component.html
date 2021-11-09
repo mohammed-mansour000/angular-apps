@@ -1,0 +1,57 @@
+<div class="container my-5">
+    <h1 class="header-title text-center text-dark pb-3 mb-3">
+        <img src="assets/project.png" style="vertical-align: middle;" class="mr-2" height="55" alt="project">
+        <span style="vertical-align: middle;">
+            Roles
+            <a routerLink="add"   style="border-radius: 100%; color: white;" class="btn btn-warning btn-sm mb-1 ml-1">
+                <i class="fas fa-plus"></i>
+            </a>
+        </span>
+    </h1>
+    <!-- if i have no projects -->
+    <div class="jumbotron text-center" *ngIf="roleExist==false">
+        <h4 class="mb-4"> No Roles yet </h4>
+        <p>
+            <button routerLink="add" tabindex="0" class="btn btn-lg btn-warning text-white">
+                <i class="fas fa-plus-circle"></i>
+                Add a Role 
+            </button>
+        </p>
+    </div>
+    <!-- my projects -->
+    <div>
+        <div class="container mb-5" *ngIf="roleExist">
+            <div class="row">
+                <div class="col-8 mx-auto">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Privileges</th>
+                            <th>Description</th>
+                            <th>Control</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let role of roles">
+                            <td>{{role.title}}</td>
+                            <td>
+                                <select  class="form-control">
+                                    <option  *ngFor="let privilege of role.privileges">
+                                        {{privilege.code}}
+                                    </option>
+                                </select>
+                            </td>
+                            <td>{{role.description}}</td>
+                            <td class="text-center">
+                                <a [routerLink]="['/roles',role.id,'edit']" class="btn btn-sm btn-info mr-lg-2"><i class="fas fa-edit"></i></a>
+                                <span (click)="delete(role.id)" class="delete-role btn btn-sm btn-danger mt-2"><i class="fas fa-trash"></i></span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

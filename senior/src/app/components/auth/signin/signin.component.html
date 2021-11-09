@@ -1,0 +1,66 @@
+<div  class="container my-5">
+    <div  class="row">
+        <div  class="col-md-8 mx-auto">
+            <h1 class="header-title text-center text-dark pb-3 mb-3"><img 
+                    src="assets/signup.png" height="55" alt="" class="mr-2"
+                    style="vertical-align: middle;"><span  style="vertical-align: middle;">Sign
+                    In</span></h1>
+            <form novalidate class="mb-2 ng-untouched ng-pristine ng-invalid"  #f="ngForm">
+                <div class="text-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+                <div class="form-group mb-3">
+                    <label for="email" class="font-weight-bold mb-1">
+                        Email
+                    </label>
+                    <sup>
+                        <small>
+                            <i class="fas fa-asterisk fa-sm text-danger"></i>
+                        </small>
+                    </sup>
+                    <input id="email" type="email" ngModel name="email" #email="ngModel"
+                        placeholder="Enter your email" required maxlength="64"
+                        class="form-control ng-untouched ng-pristine ng-invalid">
+                    <small class="text-danger" *ngIf="email.invalid && email.touched && email.dirty ">Email is Required</small>
+                    
+                    <!---->
+                </div>
+                <div class="form-group mb-3">
+                    <label for="password" class="font-weight-bold">
+                        Password
+                    </label>
+                    <sup>
+                        <small>
+                            <i class="fas fa-asterisk fa-sm text-danger"></i>
+                        </small>
+                    </sup>
+                    <input id="password" type="password" ngModel name="password" #password="ngModel" required
+                        placeholder="Enter a password" maxlength="24" onpaste="return false;"
+                        class="form-control ng-untouched ng-pristine ng-invalid">
+                    <small class="text-danger" *ngIf="password.invalid && password.touched">
+                        password is required
+                    </small>
+                    <small class="text-danger" *ngIf="password.touched && password.value.length < 6" >
+                        <div *ngIf="password.value.length > 0">password should be between 6 and 24 characters</div>
+                    </small>
+                    <!---->
+                </div>
+                    <button type="submit" class="btn btn-dark w-100"   (click)="signin(f.value)" [disabled]="f.invalid">
+                        Sign In with Email 
+                    </button>
+                <!---->
+                <p  class="mt-3 text-center font-weight-bold"><a 
+                        routerlink="/forgotpassword" class="text-secondary" href="/forgotpassword">I forgot my
+                        password</a></p>
+                <!---->
+            </form>
+            <div>
+                <h5 class="text-center text-dark my-4"> OR </h5>
+                <!---->
+                <div  class="formGroup">
+                    <button  type="button" class="btn googleBtn w-100" (click)="googleSignIn()">
+                        Sign In with Google 
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

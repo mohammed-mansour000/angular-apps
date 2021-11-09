@@ -18,7 +18,7 @@ export class PaymentDetailsComponent implements OnInit {
   }
 
   populateForm(selectedRecord: PaymentDetail){
-    this.service.formData = Object.assign({}, selectedRecord);
+    this.service.formData = Object.assign({}, selectedRecord); //create a copy of that object
   }
 
   onDelete(id: number){

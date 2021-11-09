@@ -1,0 +1,35 @@
+ngb-carousel {
+    max-width: 700px;
+    margin: 10px auto !important;
+}
+
+ngb-carousel img {
+    width: 100%;
+    outline: none;
+}
+
+ngb-carousel {
+    width: inherit;
+    height: inherit;
+}
+
+
+
+
+@media (min-width: 992px){
+    .container-data {
+        -moz-columns: 2;
+        column-count: 2;
+        -moz-column-gap: 30px;
+        column-gap: 30px;
+        
+        }
+}
+
+.container-data .container-box {
+    width: 100%;
+    overflow: hidden;
+    -moz-column-break-inside: avoid;
+    break-inside: avoid;
+}
+

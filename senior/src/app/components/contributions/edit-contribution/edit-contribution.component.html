@@ -1,0 +1,66 @@
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-10 col-xl-8 mx-auto">
+            <h3 class="header-title text-center text-dark pb-3 mb-3">
+                <img src="assets/contribution.png" style="vertical-align: middle;" class="mr-2" height="55" alt="project">
+                <span style="vertical-align: middle;">
+                    Edit Contribution
+                </span>
+            </h3>
+            <form class="mb-2">
+                <div class="form-group mb-3">
+                    <label for="title" class="font-weight-bold mb-1">Title</label>
+                    <input type="text" id="title" placeholder="Enter a title for your project" maxlength="32" name="title" required
+                         class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label for="description" class="font-weight-bold mb-1">Description</label>
+                    <textarea type="text" id="description" placeholder="Enter a title for your project" maxlength="32" name="description"
+                        class="form-control"  rows="10"
+                            placeholder="Write a description about your project" required
+                                class="form-control"></textarea>
+                </div>
+                <div class="mb-3">
+                    <div class="font-weight-bold mb-2" style="border-bottom: solid 1px #343a40;">Keywoards</div>
+                    <div class="input-group mb-1">
+                        <input type="text" formcontrolname="keyword" placeholder="Enter a keyword" class="form-control">
+                        <div class="input-group-append">
+                            <button class="btn btn-dark">add</button>
+                        </div>
+                    </div>
+                    <div class="mb-1">
+                        <span style="display: inline-block; border-radius: 10px; border: solid 1px #343a40;" class="px-2 py-1 m-1 ml-0">
+                            any
+                            <i class="fas fa-times" style="cursor: pointer;"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="font-weight-bold mb-2" style="border-bottom: solid 1px #cccdce;">Constraints</div>
+                    <div>
+                        <select name="collaborationCategory" formcontrolname="constraint" class="form-control mb-2">
+                            <option hidden selected>select constraint</option>
+                        </select>
+                        <div class="input-group mb-2">
+                            <textarea formcontrolname="constraintDescription" placeholder="Enter a description for this constraint"
+                                class="form-control" rows="3"></textarea>
+                            <div class="input-group-append">
+                                <button class="btn btn-dark">add</button>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="px-2 py-1 mb-1" style="border-radius: 10px; border: solid 1px #343a40;">
+                                <p class="mb-0 font-weight-bold">
+                                    <u>secotr</u>
+                                    <i class="fas fa-times float-right" style="cursor: pointer;"></i>
+                                </p>
+                                <p class="mb-0">desc</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-dark w-100">Save Need</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div  class="container my-5">
+    <div  class="row">
+        <div  class="col-12 mx-auto">
+
+            <h3  class="text-center text-dark pb-3"><img 
+                    src="assets/project.png" height="40" alt="project" class="mr-2"
+                    style="vertical-align: middle; padding-bottom: 3px;"><span 
+                    style="vertical-align: middle;">Project Name <button  routerLink="edit"
+                        class="btn btn-warning btn-sm mb-1 ml-1" style="border-radius: 100%; color: white;"
+                        tabindex="0"><i  class="fas fa-pen"></i></button>
+                    <button  class="btn btn-dark btn-sm mb-1 ml-1" style="border-radius: 100%;"><i
+                             class="fas fa-trash"></i></button>
+                </span>
+            </h3>
+
+            <div class="mb-3">
+                <div ><span  class="font-weight-bold">Posted on</span></div>
+                <div >March 27, 2021</div>
+            </div>
+
+            <ul  id="myTab" role="tablist" class="nav nav-tabs">
+                <li  class="nav-item"><a  id="about-tab" data-toggle="tab"
+                    [routerLink]="['/projects/55/about']" role="tab" aria-controls="about" aria-selected="true"
+                        class="nav-link text-dark active" href="/projects/55/about">About</a></li>
+                <li  class="nav-item"><a  id="needs-tab" data-toggle="tab"
+                        [routerLink]="['/projects/55/needs']"   role="tab" aria-controls="needs" aria-selected="false"
+                        class="nav-link text-dark" href="/projects/55/needs">Needs</a></li>
+            </ul>
+           <!-- <app-project-needs></app-project-needs> -->
+           <router-outlet></router-outlet>
+           
+        </div>
+    </div>
+</div>

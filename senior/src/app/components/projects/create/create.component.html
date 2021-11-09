@@ -1,0 +1,87 @@
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-10 col-xl-8 mx-auto">
+            <h1 class="header-title text-center text-dark pb-3 mb-3">
+                <img src="assets/project.png" style="vertical-align: middle;" class="mr-2" height="55" alt="project">
+                <span style="vertical-align: middle;">
+                    Create a Project
+                </span>
+            </h1>
+            <form class="mb-2" [formGroup]="addProject" (ngSubmit)="create()">
+                <div class="form-group mb-2">
+                    <label for="title" class="font-weight-bold mb-1">Title</label>
+                    <input type="text" id="title" placeholder="Enter a title for your project" maxlength="32" name="title" required
+                    formControlName="title" class="form-control">
+                    <small class="form-text text-danger" *ngIf="getFormControl('title').invalid && (getFormControl('title').dirty || getFormControl('title').touched)">
+                        <span> 
+                            title is required
+                        </span>
+                    </small>
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="abstract" class="font-weight-bold mb-1">Abstract</label>
+                    <textarea type="text" id="abstract" placeholder="Enter a title for your project" maxlength="256" minlength="120" name="abstract" 
+                    #abstract class="form-control" rows="4"
+                            placeholder="Write an abstract about your project" required
+                                formControlName="abstract" class="form-control"></textarea>
+                    <small class="form-text text-danger" *ngIf="getFormControl('abstract').invalid && (getFormControl('abstract').dirty || getFormControl('abstract').touched) && abstract.value.length == 0">
+                        <span> 
+                            abstract is required
+                        </span>
+                    </small>
+                    <small class="form-text text-danger" *ngIf="(getFormControl('abstract').dirty || getFormControl('abstract').touched) && abstract.value.length > 0">
+                        <span *ngIf="abstract.value.length <= 120"> 
+                            Minimum {{120 - abstract.value.length}} characters 
+                        </span>
+                    </small>
+                </div>
+                
+              
+                <div class="form-group mb-3">
+                    <label for="description" class="font-weight-bold mb-1">Description</label>
+                    <textarea type="text" id="description" maxlength="32" name="description"
+                        class="form-control"  rows="10"
+                            placeholder="Write a description about your project" required
+                                formControlName="description" class="form-control"></textarea>
+                    <small class="form-text text-danger" *ngIf="getFormControl('description').invalid && (getFormControl('description').dirty || getFormControl('description').touched)">
+                        <span> 
+                            description is required
+                        </span>
+                    </small>
+                </div>
+               
+                <div class="form-group mb-3">
+                    <label class="font-weight-bold mb-1">Location</label>
+                    <select name="selectedCountry" #country class="form-control mb-2"  formControlName="country" required>
+                        <option value="" selected >Select a country</option>
+                        <option value="1" >lebanon</option>
+                        <option value="2" >Country 1</option>
+                        <option value="3" >Country 2</option>
+                    </select>
+                    <select *ngIf="country.value==='1'"  formControlName="province" class="form-control mb-2">
+                        <option value="" selected>Select a province</option>
+                        <option value="1">province 1</option>
+                        <option value="2">province 2</option>
+                    </select>
+                </div>
+                <div>
+                    <p class="font-weight-bold mb-1"> Sectors this project belongs to</p>
+                    <small class="text-danger" *ngIf="this.addProject.controls['checkArray'].errors?.required">
+                        sectors is required, select atleast one value.
+                    </small>
+                    <div class="row mb-3">
+                        <div class="col-md-6" *ngFor="let item of checkBoxItems">
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" class="form-check-input" [value]="item.value" (change)="onCheckboxChange($event)">
+                                <label for="" class="form-check-label">{{item.labelName}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" [disabled]="!addProject.valid" class="btn btn-dark w-100">Save Project</button>
+            </form>
+        </div>
+    </div>
+</div>
+

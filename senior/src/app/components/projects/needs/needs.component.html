@@ -1,0 +1,51 @@
+<div _ngcontent-vqd-c67="" class="my-3">
+    <div _ngcontent-vqd-c67="" class="jumbotron text-center" *ngIf="forTest">
+        <h4 _ngcontent-vqd-c67="" class="mb-4"> You didn't add any need to this project yet </h4>
+        <p _ngcontent-vqd-c67=""><button _ngcontent-vqd-c67="" routerLink="add"
+                class="btn btn-lg btn-warning text-white" tabindex="0"><i _ngcontent-vqd-c67=""
+                    class="fas fa-plus-circle"></i> Add Need </button></p>
+    </div>
+    <p>
+        <button class="btn btn-warning text-white" routerLink="add">
+            <i class="fas fa-plus-circle"></i>
+            Add Need
+        </button>
+    </p>
+    <!-- my needs -->
+    <div class="container-data mb-5">
+        <div class="container-box mb-3">
+            <div class="p-3 bg-dark mb-2" style="border-radius: 10px;">
+                <div class="mb-2">
+                    <img src="assets/project.png" 
+                    style="height: 70px; background-color: white; padding: 7px; border-radius: 100%;" alt=""
+                    placement="right">
+                </div>
+                <h4>
+                    <a [routerLink]="[55,'about']"   style="color: rgb(242, 184, 71);">
+                        any need name
+                    </a>
+                </h4>
+                <p style="color: #fff; text-align: justify;">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum deserunt modi totam exercitationem id ducimus eligendi debitis
+                </p>
+            </div>
+            <div class="mb-2">
+                <div>
+                    <!-- ngb carrousal -->
+                    <ngb-carousel>
+                        <ng-template ngbSlide>
+                          <div class="picsum-img-wrapper">
+                            <img src="assets/retails.jpg" alt="Angular Carousel 2" class="mh-100  ng-lazyloaded"
+                            style="border-radius: 10px; width: 100%; max-height: 400px;">
+                          </div>
+                          <div class="carousel-caption">
+                            <h3>Title Goes Here</h3>
+                            <p>Consectetur tortor volutpat pretium.</p>
+                          </div>
+                        </ng-template>
+                      </ngb-carousel>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div _ngcontent-wii-c63="" class="container my-5">
+    <div _ngcontent-wii-c63="" class="row">
+        <div _ngcontent-wii-c63="" class="col-12 mx-auto">
+
+            <h3 _ngcontent-omv-c63="" class="text-center text-dark pb-3"><img _ngcontent-omv-c63=""
+                    src="assets/project.png" height="40" alt="project" class="mr-2"
+                    style="vertical-align: middle; padding-bottom: 3px;"><span _ngcontent-omv-c63=""
+                    style="vertical-align: middle;">Contribution Name <button _ngcontent-omv-c63="" routerLink="edit"
+                        class="btn btn-warning btn-sm mb-1 ml-1" style="border-radius: 100%; color: white;"
+                        tabindex="0"><i _ngcontent-omv-c63="" class="fas fa-pen"></i></button>
+                    <button _ngcontent-omv-c63="" class="btn btn-dark btn-sm mb-1 ml-1" style="border-radius: 100%;"><i
+                            _ngcontent-omv-c63="" class="fas fa-trash"></i></button>
+                </span>
+            </h3>
+
+            <div _ngcontent-wii-c63="" class="mb-3">
+                <div _ngcontent-wii-c63=""><span _ngcontent-wii-c63="" class="font-weight-bold">Posted on</span></div>
+                <div _ngcontent-wii-c63="">March 27, 2021</div>
+            </div>
+
+            <ul _ngcontent-wii-c63="" id="myTab" role="tablist" class="nav nav-tabs">
+                <li _ngcontent-wii-c63="" class="nav-item"><a _ngcontent-wii-c63="" id="about-tab" data-toggle="tab"
+                    [routerLink]="['/contributions/11/about']" role="tab" aria-controls="about" aria-selected="true"
+                        class="nav-link text-dark active" href="/contributions/11/about">About</a></li>
+                <li _ngcontent-wii-c63="" class="nav-item"><a _ngcontent-wii-c63="" id="needs-tab" data-toggle="tab"
+                        [routerLink]="['/contributions/11/matches']"   role="tab" aria-controls="needs" aria-selected="false"
+                        class="nav-link text-dark" href="/contributions/11/matches">Matching Needs</a></li>
+            </ul>
+           <!-- <app-project-needs></app-project-needs> -->
+           <router-outlet></router-outlet>
+           
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,182 @@
+<h2 class="text-center text-md-left" style="font-weight: bolder; color: rgb(56, 56, 56);">
+  BROADCASTS & FUNDS
+</h2>
+<!-- <ngx-slick-carousel  #slickModal="slick-carousel" class="carousel card-deck slick-initialized slick-slider" [config]="slideConfig">
+  <div class="slick-list draggable">
+    <div class="slick-track">
+      <div ngxslickitem *ngFor="let slide of slides" class="slide p-sm-3 slick-slide slick-cloned"
+        style="width: 320px;">
+        <div class="text-center card" style="border: none !important;">
+          <div>
+            <a href="">
+              <img src="assets/humanServices.jpg" class=" ng-lazyloading"
+                style="max-width: 100%; border-radius: 10px; border: solid 1px #6f6f6f;" alt="">
+            </a>
+          </div>
+          <div class="text-center mt-2">
+            <a href="" class="btn btn-sm btn-warning text-white">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ngx-slick-carousel> -->
+
+
+<ngx-slick-carousel class="carousel" 
+#slickModal="slick-carousel" 
+[config]="slideConfig" >
+<div ngxSlickItem *ngFor="let broadcast of broadcasts" class="slide p-sm-3">
+  <div class="text-center card" style="border: none !important;" *ngIf="broadcast">
+    <div>
+      <a href="{{broadcast.url}}" target="_blank">
+        <img src="{{broadcast.image}}" class=" ng-lazyloading"
+          style="max-width: 100%; border-radius: 10px; border: solid 1px #6f6f6f;" alt="">
+      </a>
+    </div>
+    <div class="text-center mt-2">
+      <a href="{{broadcast.url}}" target="_blank" class="btn btn-sm btn-warning text-white">Read More</a>
+    </div>
+  </div>
+</div>
+</ngx-slick-carousel>
+
+<!--Carousel Wrapper-->
+<!-- <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel"> -->
+
+  <!--Controls-->
+  <!-- <div class="controls-top">
+    <a class="btn-floating text-warning" href="#multi-item-example" data-slide="prev"><i
+        class="fa fa-chevron-left"></i></a>
+    <a class="btn-floating float-right text-warning" href="#multi-item-example" data-slide="next"><i
+        class="fa fa-chevron-right"></i></a>
+  </div> -->
+  <!--/.Controls-->
+
+  <!--Indicators-->
+  <!-- <ol class="carousel-indicators">
+      <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+      <li data-target="#multi-item-example" data-slide-to="1"></li>
+      <li data-target="#multi-item-example" data-slide-to="2"></li>
+    </ol> -->
+  <!--/.Indicators-->
+
+  <!-- <div class="carousel-inner" role="listbox">
+
+    <div class="carousel-item active">
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-2" style="border: none !important;">
+            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
+              alt="Card image cap">
+            <div class="text-center mt-2">
+              <a href="" class="btn btn-sm btn-warning text-white">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 clearfix d-none d-md-block">
+          <div class="card mb-2" style="border: none !important;">
+            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
+              alt="Card image cap">
+            <div class="text-center mt-2">
+              <a href="" class="btn btn-sm btn-warning text-white">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 clearfix d-none d-md-block">
+          <div class="card mb-2" style="border: none !important;">
+            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"
+              alt="Card image cap">
+            <div class="text-center mt-2">
+              <a href="" class="btn btn-sm btn-warning text-white">Read More</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="carousel-item">
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-2" style="border: none !important;">
+            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+              alt="Card image cap">
+            <div class="text-center mt-2">
+              <a href="" class="btn btn-sm btn-warning text-white">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 clearfix d-none d-md-block">
+          <div class="card mb-2" style="border: none !important;">
+            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg"
+              alt="Card image cap">
+            <div class="text-center mt-2">
+              <a href="" class="btn btn-sm btn-warning text-white">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 clearfix d-none d-md-block">
+          <div class="card mb-2" style="border: none !important;">
+            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg"
+              alt="Card image cap">
+            <div class="text-center mt-2">
+              <a href="" class="btn btn-sm btn-warning text-white">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="carousel-item">
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-2" style="border: none !important;">
+            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg"
+              alt="Card image cap">
+            <div class="text-center mt-2">
+              <a href="" class="btn btn-sm btn-warning text-white">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 clearfix d-none d-md-block">
+          <div class="card mb-2" style="border: none !important;">
+            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg"
+              alt="Card image cap">
+            <div class="text-center mt-2">
+              <a href="" class="btn btn-sm btn-warning text-white">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 clearfix d-none d-md-block">
+          <div class="card mb-2" style="border: none !important;">
+            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(51).jpg"
+              alt="Card image cap">
+            <div class="text-center mt-2">
+              <a href="" class="btn btn-sm btn-warning text-white">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+ -->

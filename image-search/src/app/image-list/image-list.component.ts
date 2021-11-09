@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImageListComponent implements OnInit {
 
-  images : any[];
+  images : any[] = [];
 
   searchQuery = '';
 

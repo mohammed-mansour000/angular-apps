@@ -8,3 +8,9 @@
   <option value="3">UI/UX</option>
 </select>
 <input type="checkbox" id="04" [(ngModel)]="isBrilliant">
+
+<div *ngFor="let product of products">
+  <p>{{product.name}}</p>
+  <p>{{product.price}}</p>
+  <img src="{{baseUrl}}{{product.productImage}}" alt="" width="200px" height="200px">
+</div>

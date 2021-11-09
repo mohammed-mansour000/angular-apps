@@ -1,0 +1,39 @@
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-10 col-xl-8 mx-auto">
+            <h1 class="header-title text-center text-dark pb-3 mb-3">
+                <img src="assets/project.png" style="vertical-align: middle;" class="mr-2" height="55" alt="project">
+                <span style="vertical-align: middle;">
+                    Edit Privilige
+                </span>
+            </h1>
+            <form class="mb-2" [formGroup]="editPrivilige" (ngSubmit)="edit()">
+                <div class="text-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+                <div class="form-group mb-2">
+                    <label for="title" class="font-weight-bold mb-1">Code</label>
+                    <input type="text" id="title" placeholder="Enter a code for your privilige" maxlength="32" name="title" required
+                    formControlName="code" class="form-control">
+                    <small class="form-text text-danger" *ngIf="getFormControl('code').invalid && (getFormControl('code').dirty || getFormControl('code').touched)">
+                        <span> 
+                            code is required
+                        </span>
+                    </small>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="description" class="font-weight-bold mb-1">Description</label>
+                    <textarea type="text" id="description" maxlength="120" name="description"
+                        class="form-control"  rows="5"
+                            placeholder="Write a description about your privilige" required
+                                formControlName="description" class="form-control"></textarea>
+                    <small class="form-text text-danger" *ngIf="getFormControl('description').invalid && (getFormControl('description').dirty || getFormControl('description').touched)">
+                        <span> 
+                            description is required
+                        </span>
+                    </small>
+                </div>
+                <button type="submit" [disabled]="!editPrivilige.valid" class="btn btn-dark w-100">Save Privilige</button>
+            </form>
+        </div>
+    </div>
+</div>
+

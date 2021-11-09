@@ -1,40 +1,51 @@
-<!-- <md-card>
-    <md-input-container>
-        <input type="text" class="search" mdInput [(ngModel)]="searchQuery"
+<mat-card >
+    <mat-form-field  style="width: 100%;">
+        <input type="text" class="search" matInput [(ngModel)]="searchQuery"
             name="search" placeholder="search for images">
-    </md-input-container>
+    </mat-form-field>
     <br>
     <button (click)="searchImages(searchQuery)"
-        md-raised-button class="searchButton" type="button">
+        style="width: 100%;"
+        mat-raised-button class="searchButton" type="button">
         Find Images
     </button>
-</md-card>
+</mat-card>
 
 <div *ngIf="searching">
-    <md-progress-bar mode="indeterminate"></md-progress-bar>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
 
-<md-card>
-    <h4 *ngIf="imageFound" md-subeader>Results</h4>
-    <masonry-brick *ngFor="let image of images" class="image-container">
-        <md-card>
-            <a href="{{image.pageURL}}" target="_bank">
-                <md-card-header>
-                    <div class="avatar" md-card-avatar [ngStyle]="{'background-image': 'url('+image.userImageURL+')'}"></div>
-                    <md-card-title>User: {{image.user}}</md-card-title>
-                </md-card-header>
-                <img md-card-image src="{{image.webformatURL}}" alt="">
-                <md-card-content>
-                    <p>Tags: {{image.tags}}</p>
-                    <p>Commets: {{image.comments}}</p>
-                    <p>Likes: {{image.likes}}</p>
-                </md-card-content>
-            </a>
-        </md-card>
-    </masonry-brick>
-</md-card> -->
 
-<div>
+<div class="text-center" *ngIf="images.length == 0">
+    <h1>No Images Yet</h1>
+</div>
+
+<mat-card>
+    <h4 *ngIf="imageFound" mat-subeader>Results</h4>
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let image of images">
+            <div class="image-container">
+                <mat-card>
+                    <a href="{{image.pageURL}}" target="_blank">
+                        <mat-card-header>
+                            <div class="avatar" mat-card-avatar [ngStyle]="{'background-image': 'url('+image.userImageURL+')'}"></div>
+                            <mat-card-title>User: {{image.user}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="{{image.webformatURL}}" alt="">
+                        <mat-card-content>
+                            <p>Tags: {{image.tags}}</p>
+                            <p>Commets: {{image.comments}}</p>
+                            <p>Likes: {{image.likes}}</p>
+                        </mat-card-content>
+                    </a>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</mat-card>
+
+
+<!-- <div>
     <div>
         <input type="text" class="search" mdInput [(ngModel)]="searchQuery"
             name="search" placeholder="search for images">
@@ -56,10 +67,10 @@
         <div>
             <a href="{{image.pageURL}}" target="_bank">
                 <div>
-                    <div class="avatar" md-card-avatar [ngStyle]="{'background-image': 'url('+image.userImageURL+')'}"></div>
+                    <div class="avatar" mat-card-avatar [ngStyle]="{'background-image': 'url('+image.userImageURL+')'}"></div>
                     <div>User: {{image.user}}</div>
                 </div>
-                <img md-card-image src="{{image.webformatURL}}" alt="">
+                <img mat-card-image src="{{image.webformatURL}}" alt="">
                 <div>
                     <p>Tags: {{image.tags}}</p>
                     <p>Commets: {{image.comments}}</p>
@@ -68,4 +79,4 @@
             </a>
         </div>
     </div>
-</div>
+</div> -->

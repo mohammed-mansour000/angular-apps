@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 import { fromEvent, merge } from 'rxjs';
@@ -10,10 +11,12 @@ import { debounceTime, distinctUntilChanged, filter, map, switchMap } from 'rxjs
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-
+  baseUrl = "http://localhost:3000/";
   title = 'any-name10';
 
+  constructor(private apiCaller: HttpClient){  }
 
+  products = [];
   search = '';
 
   fname = '';
@@ -32,7 +35,6 @@ export class AppComponent implements OnInit{
 
 
   ngOnInit(): void {
-
     // const searchBox = document.getElementById('search-box');
 
     // const typeahead = fromEvent(searchBox, 'input').pipe(
@@ -66,6 +68,24 @@ export class AppComponent implements OnInit{
       // Handle the data from the API
       //console.log(data);
       console.log(this.fname, this.lname, this.job, this.isBrilliant);
+      this.getProductsByName(this.fname);
     });
+  }
+
+  getProductsByName(productName: string){
+    let url = "http://localhost:3000/products/search";
+    let header =  {
+      'Content-Type': 'application/json',
+      "Accept": 'application/json',
+  }
+    this.apiCaller.get(url+"?name="+ productName).subscribe(
+      (res:any) => {
+        this.products = res.products
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }

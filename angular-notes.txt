@@ -35,14 +35,14 @@ http://localhost/any-name3/#/products //for example
 FOR GITHUB WHEN CREATING NEW REPO: (PUSH)
 	git init
 	git add .
-	git commit -m 'your message'
-	git remote add origin 'your_url_name'
+	git commit -m "initial commit"
+	git remote add origin "your_url_name"
 	git push -u origin master
 
 FOR PULL: 
 	1. Fork the Repository.
-	2.git checkout -b 'branch_name'
-	3.git push origin 'branch_name'
+	2.git checkout -b "branch_name"
+	3.git push origin "branch_name"
 	4.git pull-request
 
 	or you can fork the repo
@@ -68,3 +68,8 @@ solution => <!doctype html> to <!DOCTYPE html>
 
 install angular project without node_modules
 => ng new example --skip-install
+
+///////////////////////////////////////////////
+
+full driven template form validation is presented in project:
+MEAN-with-jwt

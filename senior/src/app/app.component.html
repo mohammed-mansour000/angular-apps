@@ -1,0 +1,66 @@
+<!-- start navbar -->
+<nav class="navbar mb-0">
+  <a href="" class="navbar-brand">
+    <img src="assets/CRIOSLOGONEW (250 x 100).jpg" height="60px" alt="">
+  </a>
+  <div class="dropdown" >
+    <span class="mr-2 font-weight-bold d-none d-sm-inline" style="vertical-align: middle;" *ngIf="isLoggedIn">
+      user name
+    </span>
+    <span class="mr-2 font-weight-bold d-none d-sm-inline" style="vertical-align: middle;" *ngIf="!isLoggedIn">
+      Join us
+    </span>
+    <button class="btn profile-icon d-none d-sm-inline" 
+      type="button" id="dropdownMenuButton" 
+        data-toggle="dropdown" 
+          aria-haspopup="true" 
+            aria-expanded="false">
+      <img src="assets/user.png" height="45" alt="">
+    </button>
+    <button class="btn profile-icon d-sm-none" 
+      type="button" id="dropdownMenuButton" 
+        data-toggle="dropdown" 
+          aria-haspopup="true" 
+            aria-expanded="false"
+              placement="left"
+                >
+      <img src="assets/user.png" height="45" alt="">
+    </button>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+      <div>
+        <a href="" class="dropdown-item" *ngIf="isLoggedIn">
+          Profile
+        </a>
+        <div class="dropdown-divider" *ngIf="isLoggedIn">
+
+        </div>
+        <a href="" class="dropdown-item" type="button" (click)="signout()" *ngIf="isLoggedIn">
+          Logout
+        </a>
+        
+        <a [routerLink]="['/signin']" class="dropdown-item" type="button" *ngIf="!isLoggedIn">
+          Sign in
+        </a>
+        <div class="dropdown-divider" *ngIf="!isLoggedIn">
+
+        </div>
+        <a [routerLink]="['/signup']" class="dropdown-item" type="button" *ngIf="!isLoggedIn">
+          Sign Up
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- end  navbar -->
+
+
+<!-- start menu -->
+
+<app-menu *ngIf="isLoggedIn"></app-menu>
+
+<!-- end menu -->
+
+<router-outlet></router-outlet>
+
+
