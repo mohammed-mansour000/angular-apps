@@ -73,3 +73,10 @@ install angular project without node_modules
 
 full driven template form validation is presented in project:
 MEAN-with-jwt
+
+/////////////////////////////////////////////////
+
+for angular build:
+ng build --base-href ./
+
+///////////////////////////////////////////////////
