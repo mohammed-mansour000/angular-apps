@@ -80,3 +80,9 @@ for angular build:
 ng build --base-href ./
 
 ///////////////////////////////////////////////////
+
+// solve problem: can't compare due to different history
+// develop is an old existing branch
+git checkout -b new_branch
+git merge develop --allow-unrelated-histories
+
