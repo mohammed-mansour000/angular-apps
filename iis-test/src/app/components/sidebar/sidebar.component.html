@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon (click)="sidebarmenu.toggle()">menu</mat-icon>
+      </button>
+      <h2>Welcome to <span [ngStyle]="{'color': isLoaded ? 'red' : 'white' }">Dashboard</span></h2>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidebarmenu>
+      <mat-nav-list>
+        <a mat-list-item> Dashboard </a>
+        <a mat-list-item> Movies </a>
+        <!-- <a mat-list-item (click)="sidebarmenu.toggle()" href="#" mat-list-item>
+          Close
+        </a> -->
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div style="height: 92vh">
+        <app-table></app-table>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
